@@ -828,3 +828,19 @@ width: 0;
       width: 85%;
   }
 }
+
+/* Definición de la fuente personalizada utilizando @font-face */
+@font-face {
+  /* Nombre que asignamos a nuestra fuente para referenciarla después */
+  font-family: 'Andrei'; 
+
+  /* Ruta al archivo de la fuente con su formato correspondiente */
+  src: url('Andrei.ttf') format('truetype');
+}
+
+/* Aplicamos la fuente personalizada a todo el texto dentro del body del documento HTML */
+body {
+  /* 'LetraAndrei' es la fuente personalizada que definimos antes, y 'sans-serif' es la fuente de respaldo */
+  font-family: 'Andrei', sans-serif;
+  font-size: 20px;
+}
