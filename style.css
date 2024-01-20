@@ -912,3 +912,34 @@ body {
     font-size: 20px; /* Tamaño de cierre más pequeño */
   }
 }
+
+  /* botón del home */
+
+  .home-button-container {
+    position: absolute;
+    top: 73%; /* Ajusta según tu layout */
+    right: 20px; /* Ajusta según tu layout */
+    z-index: 800; /* Asegúrate de que no quede detrás de otros elementos */
+    }
+  
+    #home-button {
+    display: inline-block; /* Hace que el enlace se comporte como un botón */
+    width: 23px; /* Ajusta el ancho a tu preferencia */
+    height: 23px; /* Ajusta la altura para mantener el botón proporcionado */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo negro con opacidad */
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    }
+    
+    #home-button i {
+    color: white; /* Icono blanco */
+    font-size: 20px;
+    text-align: center;
+    }
+    
+    #home-button:hover {
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo más opaco al pasar el ratón */
+    }
