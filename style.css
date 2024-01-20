@@ -558,6 +558,17 @@ html, body {
   }
 }
 
+@media (max-width: 900px) {
+  .meteor-1, .meteor-2, .meteor-3, .meteor-4, .meteor-5, 
+  .meteor-6, .meteor-7, .meteor-8, .meteor-9, .meteor-10, 
+  .meteor-11, .meteor-12, .meteor-13, .meteor-14, .meteor-15, 
+  .meteor-16, .meteor-17, .meteor-18, .meteor-19, .meteor-20, 
+  .meteor-21, .meteor-22, .meteor-23, .meteor-24, .meteor-25 {
+    display: none;
+  }
+}
+
+
 /*# sourceMappingURL=style.css.map */
 
 /* style.css */
@@ -829,18 +840,75 @@ width: 0;
   }
 }
 
-/* Definición de la fuente personalizada utilizando @font-face */
+/* Definición de la fuente 'Andrei' para letras (incluyendo acentos) y caracteres especiales, excluyendo números */
 @font-face {
-  /* Nombre que asignamos a nuestra fuente para referenciarla después */
-  font-family: 'Andrei'; 
-
-  /* Ruta al archivo de la fuente con su formato correspondiente */
+  font-family: 'Andrei';
   src: url('Andrei.ttf') format('truetype');
+  /* Especificamos el rango Unicode para letras (mayúsculas y minúsculas), acentos y caracteres especiales, excluyendo números */
+  unicode-range: U+0020-0040, U+005B-0060, U+007B-007E, /* Caracteres especiales y signos de puntuación */
+                 U+00C0-00FF, /* Caracteres latinos con acentos */
+                 U+0100-017F, /* Caracteres latinos extendidos */
+                 U+0041-005A, U+0061-007A; /* Letras mayúsculas y minúsculas */
 }
 
-/* Aplicamos la fuente personalizada a todo el texto dentro del body del documento HTML */
+/* Definición de la fuente 'NumerosAndrei' específicamente para números */
+@font-face {
+  font-family: 'NumerosAndrei';
+  src: url('Numeros_andrei.ttf') format('truetype');
+  /* Rango Unicode para los números del 0 al 9 */
+  unicode-range: U+0030-0039;
+}
+
+/* Aplicación de la fuente 'Andrei' como predeterminada para el cuerpo del documento, 
+   con 'NumerosAndrei' como complementaria para los números y 'sans-serif' como respaldo */
 body {
-  /* 'LetraAndrei' es la fuente personalizada que definimos antes, y 'sans-serif' es la fuente de respaldo */
-  font-family: 'Andrei', sans-serif;
+  font-family: 'Andrei', 'NumerosAndrei', sans-serif;
   font-size: 20px;
+}
+
+/* Estilos específicos para la caja de luz del video */
+.lightboxVideo {
+  display: none; /* Oculto por defecto */
+  position: fixed; /* Fijo en la pantalla */
+  z-index: 999999; /* En primer plano */
+  left: 0;
+  top: 5%;
+  width: 100%; /* Ancho completo */
+  height: 100%; /* Altura completa */
+  background-color: rgba(0,0,0,0.8); /* Fondo semi-transparente */
+}
+
+.lightbox-contentVideo {
+  position: relative;
+  width: 90%; /* Ancho del video como porcentaje para ser responsive */
+  max-width: 465px; /* Máximo ancho posible */
+  margin: auto;
+  padding-top: 3%; /* Espacio superior */
+}
+
+.lightboxVideo video {
+  width: 100%; /* El video ocupa todo el ancho del contenedor */
+  max-height: 70vh; /* Altura máxima para evitar desbordamiento */
+}
+
+.closeVideo {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 25px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Media query para pantallas pequeñas, como móviles */
+@media (max-width: 600px) {
+  .lightbox-contentVideo {
+    width: 95%; /* Mayor ancho para pantallas pequeñas */
+    padding-top: 10%; /* Más espacio en la parte superior */
+  }
+  .closeVideo {
+    top: 5px;
+    right: 10px;
+    font-size: 20px; /* Tamaño de cierre más pequeño */
+  }
 }

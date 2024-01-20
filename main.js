@@ -22,3 +22,18 @@ window.onclick = function(event) {
     }
 };
 
+// primera caja de luz //
+
+document.getElementById('emojiBoton').addEventListener('click', function() {
+    document.getElementById('cajaLuz').style.display = 'block';
+    pauseAllAudiosAndUpdateButtons();
+});
+
+function cerrarCajaLuz() {
+    var video = document.querySelector('#cajaLuz video');
+    if (video) {
+        video.pause();
+        video.currentTime = 0;
+    }
+    document.getElementById('cajaLuz').style.display = 'none';
+}
